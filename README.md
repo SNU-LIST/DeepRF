@@ -48,7 +48,7 @@ To run the demo, first, activate an Anaconda environment and type:
 > ./1_exc_generation.sh
 
 This shell script is to run the RF generation module in the paper, 
-and the execution time was approximately 15 hours in our machine.\
+and the execution time was approximately 23 hours in our machine.\
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
 
