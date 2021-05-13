@@ -1,7 +1,7 @@
 # DeepRF
 
 DeepRF is an AI-powered RF pulse design framework which utilizes the self-learning characteristics 
-of deep reinforcement learning to generate a novel RF pulse. \
+of deep reinforcement learning (DRL) to generate a novel RF pulse. \
 For more details, see [preprint.](https://arxiv.org/abs/2105.03061)
 
 ## System requirements
@@ -47,8 +47,7 @@ To run the demo, first, activate an Anaconda environment and type:
 > cd demo\
 > ./1_exc_generation.sh
 
-This shell script is to run the RF generation module in the paper, 
-and the execution time was approximately 23 hours in our machine.\
+The execution time was roughly 30 minutes per DRL run.\
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
 
@@ -56,19 +55,18 @@ Second, run MATLAB script '2_exc_seed_rf.m' using MATLAB.\
 Third, execute the other shell script using following command:
 > ./3_exc_refinement.sh
 
-This script is to run the RF refinement module in the paper, and the  execution time was approximately 17 hours in our machine.\
-If your GPU memory is less than 40 GB, the execution reports out-of-memory error. Then, open '3_exc_refinement.sh' and
+If available size of GPU memory is not enough, the execution reports out-of-memory error. Then, open '3_exc_refinement.sh' and
 modify the following line:
 > python ../envs/refinement.py --tag "exc_refinement" --env "Exc-v51" --gpu "0" --samples 256 --preset "../logs/exc_generation/seed_rfs.mat"
 
-Decrease the argument value of '--samples', for example, as 128. However, this may lead to worse design result 
+Decrease the argument value of '--samples', for example, as 128. However, this may lead to degraded design result 
 than the result shown in the paper.
 
 Finally, to analyze the final design, run '4_exc_plot_result.m' using MATLAB.
 You can see the pulse shapes and slice profiles of the final DeepRF pulse and SLR pulse.
 
 ## Instructions for personal RF design
-To design your own RF pulse using DeepRF, first, you need to define a reward function for your purpose.\
+To design your own RF pulse using DeepRF, first, you need to define a reward function tailored for your purpose.\
 Then, make your customized [gym environment](https://gym.openai.com/) by modifying the python scripts 
 in the 'envs/deeprf'.\
 You can start the modification by copying and pasting the demo code that already exists in the scripts.\
