@@ -16,12 +16,12 @@ RAM: 128 GB
 ### Software
 Ubuntu 18.04 LTS\
 MATLAB 2019a\
-Anaconda + python packages:\
-instead of listing all python packages to run DeepRF, we provide .yml or .txt file that can be used to 
+Anaconda + Python packages:\
+instead of listing all Python packages to run DeepRF, we provide .yml or .txt file that can be used to 
 create an Anaconda environment based on exact package versions. See below.
 
 ## Installation guide
-To install all python packages to run DeepRF,
+To install all Python packages to run DeepRF,
 0. Install appropriate versions of NVIDIA driver, CUDA, and cuDNN for your GPU
 1. Download and install [Anaconda](https://www.anaconda.com/products/individual)
 2. Create a new Anaconda environment using either of following commands:
@@ -67,7 +67,7 @@ than the result shown in the paper.
 Finally, to analyze the final design, run '4_exc_plot_result.m' using MATLAB.
 You can see the pulse shapes and slice profiles of the final DeepRF pulse and SLR pulse.
 
-## Instructions for use
+## Instructions for personal RF design
 To design your own RF pulse using DeepRF, first, you need to define a reward function for your purpose.\
 Then, make your customized [gym environment](https://gym.openai.com/) by modifying the python scripts 
 in the 'envs/deeprf'.\
