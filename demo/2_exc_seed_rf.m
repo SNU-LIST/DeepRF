@@ -8,12 +8,17 @@ num = 256;
 pulses = [];
 rews = [];
 
-for i=1:50
-    i
-    load(['../logs/exc_generation/',d(i+2).name,'/arrays/pulse300.mat']);
-    [sorted,ind] = sort(rew_list, 'descend');
-    rews = [rews, sorted(1:num)];
-    pulses = [pulses; rf_list(ind(1:num),:,:)];
+for i=1:length(d)-2
+    if isfolder(['../logs/exc_generation/',d(i+2).name])
+        d1 = dir(['../logs/exc_generation/',d(i+2).name,'/arrays']);
+        if length(d1) > 2
+            disp(['# of DRL run: ',num2str(i),'/50']);
+            load(['../logs/exc_generation/',d(i+2).name,'/arrays/pulse300.mat']);
+            [sorted,ind] = sort(rew_list, 'descend');
+            rews = [rews, sorted(1:num)];
+            pulses = [pulses; rf_list(ind(1:num),:,:)];
+        end
+    end
 end
 
 [sorted,ind] = sort(rews, 'descend');
