@@ -141,7 +141,6 @@ dependencies:
     - jupyterlab-pygments==0.1.2
     - jupyterlab-widgets==1.0.0
     - markupsafe==1.1.1
-    - matlabengineforpython==R2018a
     - mistune==0.8.4
     - nbclient==0.5.3
     - nbconvert==6.0.7
