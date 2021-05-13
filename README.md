@@ -48,7 +48,7 @@ To run the demo, first, activate an Anaconda environment and type:
 > ./1_exc_generation.sh
 
 This shell script is to run the RF generation module in the paper, 
-and the execution time will be approximately an hour.\
+and the execution time was approximately 15 hours in our machine.\
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
 
@@ -56,7 +56,7 @@ Second, run MATLAB script '2_exc_seed_rf.m' using MATLAB.\
 Third, execute the other shell script using following command:
 > ./3_exc_refinement.sh
 
-This script is to run the RF refinement module in the paper, and the  execution time will be within 17 hours.\
+This script is to run the RF refinement module in the paper, and the  execution time was approximately 17 hours in our machine.\
 If your GPU memory is less than 40 GB, the execution reports out-of-memory error. Then, open '3_exc_refinement.sh' and
 modify the following line:
 > python ../envs/refinement.py --tag "exc_refinement" --env "Exc-v51" --gpu "0" --samples 256 --preset "../logs/exc_generation/seed_rfs.mat"
