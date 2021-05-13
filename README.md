@@ -55,17 +55,17 @@ Second, run MATLAB script '2_exc_seed_rf.m' using MATLAB.\
 Third, execute the other shell script using following command:
 > ./3_exc_refinement.sh
 
-If available size of GPU memory is not enough, the execution reports out-of-memory error. Then, open '3_exc_refinement.sh' and
+If available size of GPU memory is not enough, the execution reports out-of-memory error. Then, open the shell script and
 modify the following line:
 > python ../envs/refinement.py --tag "exc_refinement" --env "Exc-v51" --gpu "0" --samples 256 --preset "../logs/exc_generation/seed_rfs.mat"
 
-Decrease the argument value of '--samples', for example, as 128. However, this may lead to degraded design result 
+Decrease the argument value of '--samples', for example, as 64. However, this may lead to degraded design result 
 than the result shown in the paper.
 
 Finally, to analyze the final design, run '4_exc_plot_result.m' using MATLAB.
-You can see the pulse shapes and slice profiles of the final DeepRF pulse and SLR pulse.
+You can see the pulse shapes and slice profiles of the final DeepRF pulse and corresponding SLR pulse.
 
-## Instructions for personal RF design
+## Instructions for your own RF design
 To design your own RF pulse using DeepRF, first, you need to define a reward function tailored for your purpose.\
 Then, make your customized [gym environment](https://gym.openai.com/) by modifying the python scripts 
 in the 'envs/deeprf'.\
