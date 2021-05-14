@@ -1,8 +1,12 @@
 clear; close all; clc;
 
 d1 = dir('../logs/exc-v51_exc_refinement');
+d2 = dir(['../logs/exc-v51_exc_refinement/',d1(end).name,'/arrays']);
+t = struct2table(d2);
+st = sortrows(t, 'date');
 
-load(['../logs/exc-v51_exc_refinement/',d1(end).name,'/arrays/pulse10000']);
+load(['../logs/exc-v51_exc_refinement/',d1(end).name,'/arrays/',char(st.name(end-2))]);
+disp(['load ',char(st.name(end-2))]);
 [~, ind] = min(loss_arr);
 exc = squeeze(pulse(ind, :, :))';
 
@@ -14,7 +18,7 @@ exc2 = exc;
 
 to_gauss = 2 * pi * 42.5775 * 1e+6 * time_step * 1e-4; % rad to gauss
 sar2 = sum((exc(:,1)./to_gauss).^2)*time_step*1e+6;
-disp(['DeepRF SAR: ',num2str(sar2)]);
+disp(['DeepRF SAR: ',num2str(sar2),' mG^2 sec']);
 
 RF_pulse = exc;
 b1_range = linspace(1.0,1.0,2)';
@@ -43,13 +47,13 @@ exc1 = exc;
 
 to_gauss = 2 * pi * 42.5775 * 1e+6 * time_step * 1e-4; % rad to gauss
 sar1 = sum((exc(:,1)./to_gauss).^2)*time_step*1e+6;
-disp(['SLR SAR: ',num2str(sar1)]);
+disp(['SLR SAR: ',num2str(sar1),' mG^2 sec']);
 
 RF_pulse = exc;
 
 m1 = SLR_exc_full_simul(RF_pulse,b1_range,off_range,gamma,time_step,rf_len,iter_num,sar_weight);
 
-disp(['SAR reduction: ',num2str((1-sar2/sar1)*100,'%.4f')]);
+disp(['SAR reduction: ',num2str((1-sar2/sar1)*100,'%.1f'),'%']);
 
 
 %% simulated profile

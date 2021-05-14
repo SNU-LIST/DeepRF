@@ -16,12 +16,13 @@ RAM: 128 GB
 ### Software
 Ubuntu 18.04 LTS\
 MATLAB 2019a\
-Anaconda + Python packages:\
+Anaconda & Python packages:\
 instead of listing all Python packages to run DeepRF, we provide .yml or .txt file that can be used to 
 create an Anaconda environment based on exact package versions. See below.
 
 ## Installation guide
 To install all Python packages to run DeepRF,
+
 0. Install appropriate versions of NVIDIA driver, CUDA, and cuDNN for your GPU
 1. Download and install [Anaconda](https://www.anaconda.com/products/individual)
 2. Create a new Anaconda environment using either of following commands:
@@ -34,12 +35,10 @@ or
 The pkgs.yml and pkgs.txt files are in the folder 'pkgs'. The installation time depends on internet speed 
 but usually takes within an hour.\
 After that, you can clone this repository:
-> git clone https://github.com/SNU-LIST/DeepRF
-
-or download ZIP file of this repository and unzip it.
+> git clone https://gitfront.io/r/user-4833002/1be179452bed1e48e1048c7fd71b4fd83293983c/DeepRF/
 
 ## Demo
-Here, we provide shell scripts and MATLAB scripts in the folder 'demo' for a quick demo of DeepRF.\
+We provide shell scripts and MATLAB scripts in the folder 'demo' for a quick demo of DeepRF.\
 After running these scripts, a slice-selective excitation pulse will be designed, 
 and the analysis result will be displayed 
 (see Fig. 2 and Supplementary Fig. 5 in the paper).\
@@ -47,7 +46,8 @@ To run the demo, first, activate an Anaconda environment and type:
 > cd demo\
 > ./1_exc_generation.sh
 
-The execution time was roughly 30 minutes per DRL run.\
+The execution time was less than 30 minutes per DRL run (see METHODS in the paper), 
+and the total time was 23 hours.\
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
 
@@ -55,7 +55,7 @@ Second, run MATLAB script '2_exc_seed_rf.m' using MATLAB.\
 Third, execute the other shell script using following command:
 > ./3_exc_refinement.sh
 
-If available size of GPU memory is not enough, the execution reports out-of-memory error. Then, open the shell script and
+The execution time was roughly 17 hours. If available size of GPU memory is not enough, the execution reports out-of-memory error. Then, open the shell script and
 modify the following line:
 > python ../envs/refinement.py --tag "exc_refinement" --env "Exc-v51" --gpu "0" --samples 256 --preset "../logs/exc_generation/seed_rfs.mat"
 
@@ -65,12 +65,12 @@ than the result shown in the paper.
 Finally, to analyze the final design, run '4_exc_plot_result.m' using MATLAB.
 You can see the pulse shapes and slice profiles of the final DeepRF pulse and corresponding SLR pulse.
 
-## Instructions for your own RF design
+## Instructions for your own RF pulse design
 To design your own RF pulse using DeepRF, first, you need to define a reward function tailored for your purpose.\
-Then, make your customized [gym environment](https://gym.openai.com/) by modifying the python scripts 
+Then, make your customized [gym environment](https://gym.openai.com/) by modifying the Python scripts 
 in the 'envs/deeprf'.\
-You can start the modification by copying and pasting the demo code that already exists in the scripts.\
-After that, run DeepRF using your new gym environment as similar as the demo above.
+You can start the modification by copying and pasting the demo code that already exists in those scripts.\
+After that, run DeepRF using your new gym environment as demonstrated in the demo.
 
 ## Acknowledgement
 DeepRF was implemented by modifying 
