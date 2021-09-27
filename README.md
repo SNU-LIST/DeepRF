@@ -1,4 +1,5 @@
 # DeepRF
+[![DOI](https://zenodo.org/badge/366596735.svg)](https://zenodo.org/badge/latestdoi/366596735)
 
 DeepRF is an AI-powered RF pulse design framework which utilizes the self-learning characteristics 
 of deep reinforcement learning (DRL) to generate a novel RF pulse. \
