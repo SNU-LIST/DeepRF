@@ -56,7 +56,7 @@ and the total time was 23 hours.\
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
 
-UPDATE (2024/05/06): A [new version](https://github.com/SNU-LIST/DeepRF/blob/master/envs/generation_pytorch_version.py) of the Generation module based on PyTorch only was added to the repository. It is designed for better code consistency and easier understanding. If you wish to use it instead, you can simply run:
+**UPDATE (2024/05/06):** A [new version](https://github.com/SNU-LIST/DeepRF/blob/master/envs/generation_pytorch_version.py) of the Generation module based on PyTorch only was added to the repository. It is designed for better code consistency and easier understanding. If you wish to use it instead, you can simply run:
 > ./1_exc_generation_pytorch.sh
 
 
