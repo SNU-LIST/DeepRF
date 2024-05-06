@@ -52,8 +52,13 @@ To run the demo, first, activate an Anaconda environment and type:
 This shell script is to run the RF generation module (see METHODS in the paper). 
 The execution time was less than 30 minutes per DRL run, 
 and the total time was 23 hours.\
+
 If the .sh file is not executable, use following command.
 > chmod +x 1_exc_generation.sh
+
+UPDATE (2024/05/06): A [new version](https://github.com/SNU-LIST/DeepRF/blob/master/envs/generation_pytorch_version.py) of the Generation module based on PyTorch only was added to the repository. It is designed for better code consistency and easier understanding. If you wish to use it instead, you can simply run:
+> ./1_exc_generation_pytorch.sh
+
 
 Second, run MATLAB script '2_exc_seed_rf.m' using MATLAB.\
 Third, execute the other shell script using following command:
