@@ -3,7 +3,7 @@
 
 DeepRF is an AI-powered RF pulse design framework which utilizes the self-learning characteristics 
 of deep reinforcement learning (DRL) to generate a novel RF pulse. \
-For more details, see [preprint.](https://arxiv.org/abs/2105.03061)
+For more details, see our paper at *[Nature Machine Intelligence](https://www.nature.com/articles/s42256-021-00411-1)* or *[preprint](https://arxiv.org/abs/2105.03061)*.
 
 ## System requirements
 
