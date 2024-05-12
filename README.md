@@ -101,6 +101,5 @@ Software:
 When sending an email, an academic e-mail address (e.g. .edu, .ac.) is required.  
 
 ## Contact
-Dongmyung Shin, Ph.D. candidate, Seoul National University.  
-shinsae11@gmail.com  
+snu.list.software@gmail.com \
 http://list.snu.ac.kr
